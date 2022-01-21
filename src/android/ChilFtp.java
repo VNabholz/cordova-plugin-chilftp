@@ -29,7 +29,7 @@ public class ChilFtp extends CordovaPlugin {
             if (action.equals("keySetting")) {
                 keySetting(data.getString(0), callbackContext);
             } else if (action.equals("connect")) {
-                connect(data.getString(0), data.getString(1), data.getString(2), data.getString(3), data.getBoolean(4), data.getBoolean(5), callbackContext);
+                connect(data.getString(0), data.getString(1), data.getString(2), data.getString(3), data.getBoolean(4), data.getBoolean(5), data.getBoolean(6), callbackContext);
             } else if (action.equals("upload")) {
                 upload(data.getString(0), data.getString(1), callbackContext);
             } else if (action.equals("download")) {
@@ -78,7 +78,7 @@ public class ChilFtp extends CordovaPlugin {
         }
     }
 
-    public void connect(String host, String port, String user, String password, boolean restartNext, boolean ssl, CallbackContext callbackContext) {
+    public void connect(String host, String port, String user, String password, boolean restartNext, boolean ssl, boolean tls, CallbackContext callbackContext) {
         boolean success;
 
         ftp.put_Hostname(host);
@@ -88,6 +88,7 @@ public class ChilFtp extends CordovaPlugin {
         ftp.put_ConnectTimeout(10);
         ftp.put_LargeFileMeasures(true);
         ftp.put_Ssl(ssl);
+        ftp.put_AuthTls(tls);
         ftp.put_Passive(true);
 
         success = ftp.Connect();
