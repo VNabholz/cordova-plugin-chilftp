@@ -12,7 +12,7 @@ import {Plugin, Cordova, IonicNativePlugin} from '@ionic-native/core';
 export class ChilFtp extends IonicNativePlugin {
 
     @Cordova()
-    connect(hostname: string, port: number, username: string, password: string, restartNext: boolean, ssl: boolean, tls: boolean): Promise<any> {
+    connect(hostname: string, port: number, username: string, password: string, restartNext: boolean, ssl: boolean, tls: boolean, timeout: number): Promise<any> {
         return;
     }
 

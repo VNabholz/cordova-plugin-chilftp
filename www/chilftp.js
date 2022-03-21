@@ -14,11 +14,11 @@ function removePathProtocolPrefix(path) {
 function ChilFtp() {
 }
 
-ChilFtp.prototype.connect = function (hostname, port, username, password, restartNext, ssl, tls, successCallback, errorCallback) {
+ChilFtp.prototype.connect = function (hostname, port, username, password, restartNext, ssl, tls, timeout, successCallback, errorCallback) {
     exec(successCallback,
         errorCallback,
         "ChilFtp",
-        "connect", [hostname, port, username, password, restartNext, ssl, tls]);
+        "connect", [hostname, port, username, password, restartNext, ssl, tls, timeout]);
 };
 
 ChilFtp.prototype.upload = function (local, remote, successCallback, errorCallback) {
